@@ -1,0 +1,18 @@
+svg.svg {
+  font: 10px sans-serif;
+  shape-rendering: crispEdges;
+}
+
+rect {
+  fill: #fff;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #ccc;
+}
+
+line.xAxisLine {
+  stroke: #f00;
+}

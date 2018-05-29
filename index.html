@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>d3.js实现自定义多y轴折线图</title>
+  <link rel="stylesheet" href="./multiYChart.css">
+  <script src="./d3.min.js"></script>
+  <script src="./multiYChart.js"></script>
+  <style>
+    .chart {
+      margin: 0 auto;
+      width: 690px;
+      height: 650px;
+    }
+
+    .reset {
+      display: block;
+      margin: 50px auto 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chartWrap">
+    <button class="reset" id="reset">RESET</button>
+    <div class="chart" id="chart">
+    </div>
+  </div>
+  <script>
+    var dataSource = [{
+        desc: '体温',
+        code: 'temperature',
+        unit: '℃',
+        min: 34,
+        max: 42,
+        data: [{
+          datetime: new Date(2018, 0, 1, 12),
+          value: 36.5
+        }, {
+          datetime: new Date(2018, 0, 2, 12),
+          value: 37
+        }, {
+          datetime: new Date(2018, 0, 3, 12),
+          value: 38
+        }, {
+          datetime: new Date(2018, 0, 4, 12),
+          value: 38.3
+        }, {
+          datetime: new Date(2018, 0, 5, 12),
+          value: 37
+        }, {
+          datetime: new Date(2018, 0, 6, 12),
+          value: 36.5
+        }]
+      },
+      {
+        desc: '脉搏',
+        code: 'pulseRate',
+        unit: '次/分',
+        min: 20,
+        max: 180,
+        data: [{
+          datetime: new Date(2018, 0, 1, 12),
+          value: 80
+        }, {
+          datetime: new Date(2018, 0, 2, 12),
+          value: 70
+        }, {
+          datetime: new Date(2018, 0, 3, 12),
+          value: 90
+        }, {
+          datetime: new Date(2018, 0, 4, 12),
+          value: 89
+        }, {
+          datetime: new Date(2018, 0, 5, 12),
+          value: 85
+        }, {
+          datetime: new Date(2018, 0, 6, 12),
+          value: 100
+        }]
+      }
+    ];
+    var options = {
+      id: 'chart',
+      width: 690,
+      height: 650,
+      beginTime: new Date(2018, 0, 1),
+      zooming: true,
+      dataSource
+    };
+    var multiYChart = new multiYChart(options)
+  </script>
+</body>
+
+</html>
